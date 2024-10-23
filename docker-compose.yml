@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  web:
+    build: .
+    container_name: teslamate-public-charge-importer
+    image: teslamate-public-charge-importer
+    network_mode: "host"
+    restart: always 
+    environment:
+      - SCRAPER_CONF=${SCRAPER_CONF}
+      - TESLA_MATE_CONF=${TESLA_MATE_CONF}
+      - DEBUG=${DEBUG}

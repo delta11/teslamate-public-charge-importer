@@ -1,0 +1,13 @@
+SCRAPER_CONF="
+[
+    {
+        "type":"road",
+        "args":{
+            "bearer":"<INSERT ROAD BEARER HERE, DO NOT INCLUDE THE WORD BEARER>"
+        }
+    }
+]
+"
+# TESLA_MATE_CONF='{"mocked":true}';
+TESLA_MATE_CONF='{"username":"teslamate","password":"teslamate"}'
+# DEBUG="true";
