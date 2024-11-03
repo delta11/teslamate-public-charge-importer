@@ -3,7 +3,7 @@ import { Session } from "../sessions.ts";
 import type Scraper from "./scraper.ts";
 
 export default class Road implements Scraper {
-  private two_hours = 3_600_000 * 2;
+  private one_hour = 3_600_000;
   private bearer: string;
 
   constructor(args: { bearer: string }) {
@@ -34,8 +34,8 @@ export default class Road implements Scraper {
     // }
     const charges = data.data;
     return charges.map((charge) => {
-      const startDate = Date.parse(charge.startedAt) - this.two_hours;
-      const endDate = Date.parse(charge.endedAt);
+      const startDate = Date.parse(charge.startedAt) - this.one_hour;
+      const endDate = Date.parse(charge.endedAt) - this.one_hour;
       const cost = charge.priceWithFX.originalAmountWithVAT.toFixed(2);
       return new Session(startDate, endDate, charge.kwh, cost);
     });
